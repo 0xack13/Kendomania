@@ -30,3 +30,24 @@
         .Read(read => read.Action("Products_Read", "Home"))
     )
 )
+
+#3
+
+@(Html.Kendo().Grid((IEnumerable<KendoUIBasicGrid.Models.Product>)ViewBag.Products)
+      .Name("grid3")
+      .Columns(columns =>
+      {
+          columns.Bound(product => product.ProductID);
+          columns.Bound(product => product.ProductName);
+      })
+      .Pageable()
+      .DetailTemplate(@<text>
+        <div>Product Details:</div>
+        <div>ProductID: @item.ProductID</div>
+        <div>ProductName: @item.ProductName</div>
+        <div>UnitsInStock: @item.UnitsInStock</div>
+        <div>UnitPrice: @item.UnitPrice</div>
+        <div>UnitsOnOrder: @item.UnitsOnOrder</div>
+        <div>Discontinued: @item.Discontinued</div>
+    </text>)
+)
