@@ -12,3 +12,21 @@
       .Pageable() // Enable paging
       .Sortable() // Enable sorting
 )
+
+#2
+
+@(Html.Kendo().Grid((IEnumerable<KendoUIBasicGrid.Models.Product>)ViewBag.Products)
+    .Name("grid1")
+    .Columns(columns =>
+    {
+        columns.Bound(product => product.ProductName);
+        columns.Command(command => command.Destroy());
+    })
+    .Editable(editable => editable.Mode(GridEditMode.InLine))
+    .DataSource(dataSource => dataSource
+        .Ajax() // or .Server()
+        .Model(model => model.Id(product => product.ProductID))
+        .Destroy(destroy => destroy.Action(/* action */"Products_Destroy", /* controller */ "Home"))
+        .Read(read => read.Action("Products_Read", "Home"))
+    )
+)
