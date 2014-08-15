@@ -46,6 +46,11 @@ build/
 *.log
 *.scc
 
+# DB files including LocalDB files
+*.mdf
+*.ldf
+App_Data/
+
 # Visual C++ cache files
 ipch/
 *.aps
