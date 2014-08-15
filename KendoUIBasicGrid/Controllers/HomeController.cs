@@ -14,10 +14,29 @@ namespace KendoUIBasicGrid.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+            /*ViewBag.Message = "Welcome to ASP.NET MVC!";
             var northwind = new NorthwindEntities2();
             // Get the Products entities and add them in the ViewBag
             ViewBag.Products = northwind.Products;
+            return View();
+            */
+            //var model
+            var model = from o in new NorthwindEntities2().Products
+                        select new ProductViewModel
+                        {
+                            ProductID = o.ProductID,
+                            ProductName= o.ProductName,
+                            SupplierID = o.SupplierID,
+                            UnitPrice = o.UnitPrice,
+                            QuantityPerUnit = o.QuantityPerUnit,
+                            ReorderLevel = o.ReorderLevel,
+                            UnitsInStock = o.UnitsInStock,
+                            UnitsOnOrder = o.UnitsOnOrder,
+                            CategoryID = o.CategoryID,
+                            Discontinued = o.Discontinued
+                        };
+            IEnumerable<ProductViewModel> modeProduct = model.ToList();
+            ViewBag.Products = modeProduct;
             return View();
         }
 

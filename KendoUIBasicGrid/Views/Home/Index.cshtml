@@ -1,4 +1,5 @@
-﻿@(Html.Kendo().Grid((IEnumerable<KendoUIBasicGrid.Models.Product>)ViewBag.Products) //Bind the grid to ViewBag.Products
+﻿
+@(Html.Kendo().Grid((IEnumerable<KendoUIBasicGrid.Models.ProductViewModel>)ViewBag.Products) //Bind the grid to ViewBag.Products
       .Name("grid")
       .Columns(columns =>
       {
@@ -15,7 +16,7 @@
 
 #2
 
-@(Html.Kendo().Grid((IEnumerable<KendoUIBasicGrid.Models.Product>)ViewBag.Products)
+@(Html.Kendo().Grid((IEnumerable<KendoUIBasicGrid.Models.ProductViewModel>)ViewBag.Products)
     .Name("grid1")
     .Columns(columns =>
     {
@@ -33,7 +34,7 @@
 
 #3
 
-@(Html.Kendo().Grid((IEnumerable<KendoUIBasicGrid.Models.Product>)ViewBag.Products)
+@(Html.Kendo().Grid((IEnumerable<KendoUIBasicGrid.Models.ProductViewModel>)ViewBag.Products)
       .Name("grid3")
       .Columns(columns =>
       {
