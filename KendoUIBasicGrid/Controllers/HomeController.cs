@@ -15,9 +15,16 @@ namespace KendoUIBasicGrid.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
-            var northwind = new NorthwindEntities();
+            var northwind = new NorthwindEntities2();
             // Get the Products entities and add them in the ViewBag
             ViewBag.Products = northwind.Products;
+            return View();
+        }
+
+        public ActionResult Cats()
+        {
+            var northwind = new NorthwindEntities2();
+            ViewBag.Products = northwind.Categories;
             return View();
         }
 

@@ -13,10 +13,10 @@ namespace KendoUIBasicGrid.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NorthwindEntities : DbContext
+    public partial class NorthwindEntities2 : DbContext
     {
-        public NorthwindEntities()
-            : base("name=NorthwindEntities")
+        public NorthwindEntities2()
+            : base("name=NorthwindEntities2")
         {
         }
     
@@ -25,6 +25,7 @@ namespace KendoUIBasicGrid.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
     }
 }
