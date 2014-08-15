@@ -1,41 +1,14 @@
-﻿@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-@(Html.Kendo().DatePicker().Name("datepicker"))
-
-<div id="clientsDb">
-    @(Html.Kendo().Grid<Kendo.Mvc.Examples.Models.CustomerViewModel>()
-        .Name("grid")
-        .Columns(columns =>
-        {
-            columns.Bound(c => c.ContactName).Width(140);
-            columns.Bound(c => c.ContactTitle).Width(190);
-            columns.Bound(c => c.CompanyName);
-            columns.Bound(c => c.Country).Width(110);
-        })
-        .HtmlAttributes(new { style = "height: 380px;" })
-        .Scrollable()
-        .Groupable()
-        .Sortable()
-        .Pageable(pageable => pageable
-            .Refresh(true)
-            .PageSizes(true)
-            .ButtonCount(5))
-        .DataSource(dataSource => dataSource
-            .Ajax()
-            .Read(read => read.Action("Customers_Read", "Grid"))
-        )
-    )
-</div>
-
-<style scoped>
-    #clientsDb {
-        width: 952px;
-        height: 396px;
-        margin: 20px auto 0;
-        padding: 51px 4px 0 4px;
-        background: url('@Url.Content("~/content/web/grid/clientsDb.png")') no-repeat 0 0;
-    }
-</style>
+﻿@(Html.Kendo().Grid((IEnumerable<KendoUIBasicGrid.Models.Product>)ViewBag.Products) //Bind the grid to ViewBag.Products
+      .Name("grid")
+      .Columns(columns =>
+      {
+          // Create a column bound to the ProductID property
+          columns.Bound(product => product.ProductID);
+          // Create a column bound to the ProductName property
+          columns.Bound(product => product.ProductName);
+          // Create a column bound to the UnitsInStock property
+          columns.Bound(product => product.UnitsInStock);
+      })
+      .Pageable() // Enable paging
+      .Sortable() // Enable sorting
+)
