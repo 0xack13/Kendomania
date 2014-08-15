@@ -11,23 +11,30 @@ namespace BasicGridApp.Controllers
     {
         public ActionResult Index()
         {
-            Person p = new Person();
+            Person p;
             List<Person> lp = new List<Person>();
-            
+
+            p = new Person();
             p.ID = 1;
             p.FirstName = "Mohammad";
             p.LastName = "Ali";
             lp.Add(p);
 
+            p = new Person();
             p.ID = 2;
-            p.FirstName = "Mohammad";
-            p.LastName = "Ali";
+            p.FirstName = "Hassan";
+            p.LastName = "Omar";
             lp.Add(p);
 
+            p = new Person();
             p.ID = 3;
-            p.FirstName = "Mohammad";
-            p.LastName = "Ali";
+            p.FirstName = "Ahmed";
+            p.LastName = "Yousef";
             lp.Add(p);
+
+            var data = lp;
+
+            return View(data);
 
         }
 
