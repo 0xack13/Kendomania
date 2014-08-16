@@ -1,5 +1,4 @@
-﻿#1 Basic Usage
-
+﻿
 @(Html.Kendo().Grid((IEnumerable<KendoUIBasicGrid.Models.ProductViewModel>)ViewBag.Products) //Bind the grid to ViewBag.Products
       .Name("grid")
       .Columns(columns =>
@@ -15,7 +14,7 @@
       .Sortable() // Enable sorting
 )
 
-#2 Editable (InLine)
+#2
 
 @(Html.Kendo().Grid((IEnumerable<KendoUIBasicGrid.Models.ProductViewModel>)ViewBag.Products)
     .Name("grid1")
@@ -33,7 +32,7 @@
     )
 )
 
-#3 Detailed template using Divs:
+#3
 
 @(Html.Kendo().Grid((IEnumerable<KendoUIBasicGrid.Models.ProductViewModel>)ViewBag.Products)
       .Name("grid3")
