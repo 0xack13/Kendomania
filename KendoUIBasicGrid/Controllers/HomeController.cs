@@ -35,8 +35,8 @@ namespace KendoUIBasicGrid.Controllers
                             CategoryID = o.CategoryID,
                             Discontinued = o.Discontinued
                         };
-            IEnumerable<ProductViewModel> modeProduct = model.ToList();
-            ViewBag.Products = modeProduct;
+            //var modeProduct = model.ToList();
+            ViewBag.Products = model;
             return View();
         }
 
